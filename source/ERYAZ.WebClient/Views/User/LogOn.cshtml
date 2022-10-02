@@ -1,0 +1,29 @@
+﻿@model LogOnModel
+@{
+    ViewData["Title"] = "Giriş";
+    Layout = "_LayoutLogin";
+}
+
+<div class="user-center-align">
+    <div class="body">
+        <form method="post">
+            <label>Kullanıcı Adı</label>
+            <input class="form-control col-6 mb-2" type="text" id="User" name="User" value="@Model.User" required />
+
+            <label>Şifre</label>
+            <input class="form-control col-6  mb-2" type="password" id="Pass" name="Pass" value="" required />
+
+            @if (Model.ErrorMessage.Any())
+            {
+                <ul class="error">
+                    @for (var i = 0; i < Model.ErrorMessage.Count; i++)
+                    {
+                        <li>@Model.ErrorMessage[i]</li>
+                    }
+                </ul>
+            }
+
+            <button class="btn btn-primary" type="submit">Giriş</button>
+        </form>
+    </div>
+</div>
